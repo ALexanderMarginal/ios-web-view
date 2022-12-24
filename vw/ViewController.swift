@@ -1,19 +1,19 @@
-//
-//  ViewController.swift
-//  vw
-//
-//  Created by gtraskovskiy on 24.12.2022.
-//
-
 import UIKit
+import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WKNavigationDelegate {
+    var webView: WKWebView!
+
+    override func loadView() {
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let url = URL(string: "")!
+        webView.load(URLRequest(url: url))
+        webView.allowsBackForwardNavigationGestures = true
     }
-
-
 }
-
